@@ -1,6 +1,6 @@
 {
-  "name": "motion-viewer",
-  "short_name": "motion-viewer",
+  "name": "Motion Viewer",
+  "short_name": "Motion Viewer",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",
