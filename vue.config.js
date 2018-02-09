@@ -3,5 +3,12 @@ module.exports = {
     host: 'localhost'
   },
   lintOnSave: true,
-  productionSourceMap: false
+  productionSourceMap: false,
+  pwa: {
+    workboxOptions: {
+      importWorkboxFrom: 'local',
+      clientsClaim: true,
+      skipWaiting: true
+    }
+  }
 }
