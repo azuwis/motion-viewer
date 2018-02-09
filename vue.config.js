@@ -2,5 +2,6 @@ module.exports = {
   devServer: {
     host: 'localhost'
   },
-  lintOnSave: true
+  lintOnSave: true,
+  productionSourceMap: false
 }
