@@ -28,7 +28,7 @@ v-app#app
     )
       v-icon more_vert
   v-content
-    router-view(@loading="val => loading = val")
+    router-view
   snack-bar
 </template>
 
@@ -64,6 +64,9 @@ export default {
   created () {
     const date = localStorage.getItem('date')
     this.date = date || getDate(new Date())
+    EventBus.$on('loading', loading => {
+      this.loading = loading
+    })
   }
 }
 </script>

@@ -78,7 +78,7 @@ export default {
     },
     updateVideos (force = true) {
       if (!force && this.videos[this.date]) return
-      this.$emit('loading', true)
+      EventBus.$emit('loading', true)
       axios.get(`${this.motionPrefix}${this.date}/`).then(response => {
         this.$set(this.videos, this.date, response.data.filter(file => {
           return file.name.endsWith('.jpg') && !file.name.endsWith('-sprite.jpg')
@@ -87,7 +87,7 @@ export default {
           return {time}
         }))
       }).finally(() => {
-        this.$emit('loading', false)
+        EventBus.$emit('loading', false)
       })
     }
   },
