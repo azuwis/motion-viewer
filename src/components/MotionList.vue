@@ -8,7 +8,7 @@ v-container(fluid grid-list-xs)
     )
       img(
         :src="`${motionPrefix}${date}/${video.time}.jpg`"
-        :style="(dialog && video.time === selected) ? {'outline': 'double'} : null"
+        :class="{'motion-list-img-selected': (dialog && video.time === selected)}"
         width="100%" height="100%"
         @click.stop="showMotionDetail(video.time)"
       )
@@ -111,5 +111,10 @@ export default {
   width: 32px;
   height: 32px;
   margin-right: -15px;
+}
+
+.motion-list-img-selected {
+  outline: 2px dashed #EEEEEE;
+  outline-offset: -2px;
 }
 </style>
