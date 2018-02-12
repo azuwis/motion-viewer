@@ -6,16 +6,16 @@ v-navigation-drawer(app dark fixed v-model="drawer")
         v-icon home
       v-list-tile-content
         v-list-tile-title Home
-    v-list-tile(@click.native="reset")
-      v-list-tile-action
-        v-icon clear_all
-      v-list-tile-content
-        v-list-tile-title Reset
     v-list-tile(@click.native="toggleFullscreen")
       v-list-tile-action
         v-icon fullscreen
       v-list-tile-content
         v-list-tile-title Fullscreen
+    v-list-tile(@click.native="reset")
+      v-list-tile-action
+        v-icon clear_all
+      v-list-tile-content
+        v-list-tile-title Reset
 </template>
 
 <script>
