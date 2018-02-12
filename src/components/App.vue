@@ -19,6 +19,11 @@ v-app#app
     v-spacer
     v-btn(
       icon
+      @click.native="updateVideos"
+    )
+      v-icon cloud_download
+    v-btn(
+      icon
       @click.stop="$refs.navDrawer.drawer = true"
     )
       v-icon more_vert
@@ -28,6 +33,7 @@ v-app#app
 </template>
 
 <script>
+import EventBus from '@/EventBus'
 import NavDrawer from '@/components/NavDrawer.vue'
 import SnackBar from '@/components/SnackBar.vue'
 import {getDate} from '@/utils'
@@ -50,6 +56,9 @@ export default {
   methods: {
     gotoToday () {
       this.date = getDate(new Date())
+    },
+    updateVideos () {
+      EventBus.$emit('update-videos')
     }
   },
   created () {

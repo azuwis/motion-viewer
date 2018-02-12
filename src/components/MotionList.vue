@@ -35,6 +35,7 @@ v-container(fluid grid-list-xs)
 </template>
 
 <script>
+import EventBus from '@/EventBus'
 import MotionDetail from '@/components/MotionDetail.vue'
 import NavFab from '@/components/NavFab.vue'
 import axios from 'axios'
@@ -95,6 +96,7 @@ export default {
     if (videosJson) this.videos = JSON.parse(videosJson)
     this.date = this.$route.params.date
     this.updateVideos(true)
+    EventBus.$on('update-videos', this.updateVideos)
   }
 }
 </script>
