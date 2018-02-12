@@ -17,12 +17,12 @@ v-app#app
       )#date-picker
       v-date-picker(no-title v-model="date")
     v-spacer
-    v-btn(
+    v-btn.app-btn(
       icon
       @click.native="updateVideos"
     )
       v-icon cloud_download
-    v-btn(
+    v-btn.app-btn(
       icon
       @click.stop="$refs.navDrawer.drawer = true"
     )
@@ -69,6 +69,11 @@ export default {
 </script>
 
 <style>
+button.btn.btn--icon.app-btn {
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+}
+
 input#date-picker {
   max-width: 82px;
 }
