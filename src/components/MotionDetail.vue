@@ -48,8 +48,8 @@ export default {
       return !this.preview ? null : {
         width: `${this.width}px`,
         height: `${this.height}px`,
-        'object-fit': 'cover',
-        'object-position': `-${this.frame * this.width}px`
+        objectFit: 'cover',
+        objectPosition: `-${this.frame * this.width}px`
       }
     }
   },
