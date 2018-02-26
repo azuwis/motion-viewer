@@ -35,7 +35,6 @@ v-container(fluid grid-list-xs)
 </template>
 
 <script>
-import EventBus from '@/EventBus'
 import MotionDetail from '@/components/MotionDetail.vue'
 import NavFab from '@/components/NavFab.vue'
 import axios from 'axios'
@@ -78,7 +77,7 @@ export default {
     },
     updateVideos (force = true) {
       if (!force && this.videos[this.date]) return
-      EventBus.$emit('loading', true)
+      this.$bus.$emit('loading', true)
       axios.get(`${this.motionPrefix}${this.date}/`).then(response => {
         this.$set(this.videos, this.date, response.data.filter(file => {
           return file.name.endsWith('.jpg') && !file.name.endsWith('-sprite.jpg')
@@ -87,7 +86,7 @@ export default {
           return {time}
         }))
       }).finally(() => {
-        EventBus.$emit('loading', false)
+        this.$bus.$emit('loading', false)
       })
     }
   },
@@ -96,7 +95,7 @@ export default {
     if (videosJson) this.videos = JSON.parse(videosJson)
     this.date = this.$route.params.date
     this.updateVideos(true)
-    EventBus.$on('update-videos', this.updateVideos)
+    this.$bus.$on('update-videos', this.updateVideos)
   }
 }
 </script>

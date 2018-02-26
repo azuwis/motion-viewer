@@ -10,6 +10,8 @@ import colors from 'vuetify/es5/util/colors'
 
 Vue.config.productionTip = false
 
+Vue.prototype.$bus = new Vue()
+
 Vue.use(Vuetify, {
   theme: {
     primary: colors.grey.darken3,

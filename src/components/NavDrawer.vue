@@ -19,7 +19,6 @@ v-navigation-drawer(app dark fixed v-model="drawer")
 </template>
 
 <script>
-import EventBus from '@/EventBus'
 import {toggleFullscreen} from '@/utils'
 
 export default {
@@ -39,7 +38,7 @@ export default {
     reset () {
       localStorage.clear()
       this.drawer = false
-      EventBus.$emit('toast', 'Reset done')
+      this.$bus.$emit('toast', 'Reset done')
     }
   }
 }

@@ -7,8 +7,6 @@ v-snackbar(v-model="snackbar") {{ message }}
 </template>
 
 <script>
-import EventBus from '@/EventBus'
-
 export default {
   name: 'Snackbar',
   data: () => ({
@@ -16,7 +14,7 @@ export default {
     snackbar: null
   }),
   mounted () {
-    EventBus.$on('toast', message => {
+    this.$bus.$on('toast', message => {
       this.message = message
       this.snackbar = true
     })

@@ -33,7 +33,6 @@ v-app#app
 </template>
 
 <script>
-import EventBus from '@/EventBus'
 import NavDrawer from '@/components/NavDrawer.vue'
 import SnackBar from '@/components/SnackBar.vue'
 import {getDate} from '@/utils'
@@ -58,13 +57,13 @@ export default {
       this.date = getDate(new Date())
     },
     updateVideos () {
-      EventBus.$emit('update-videos')
+      this.$bus.$emit('update-videos')
     }
   },
   created () {
     const date = localStorage.getItem('date')
     this.date = date || getDate(new Date())
-    EventBus.$on('loading', loading => {
+    this.$bus.$on('loading', loading => {
       this.loading = loading
     })
   }
