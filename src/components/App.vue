@@ -8,21 +8,24 @@ v-app#app
   )
     v-menu
       v-text-field(
+        :class="$style.datePicker"
         prepend-icon="today"
         :prepend-icon-cb="gotoToday"
         hide-details readonly single-line
         slot="activator"
         :loading="loading ? 'success' : false"
         v-model="date"
-      )#date-picker
+      )
       v-date-picker(no-title v-model="date")
     v-spacer
     v-btn.app-btn(
+      :class="$style.iconButton"
       icon
       @click.native="updateVideos"
     )
       v-icon cloud_download
     v-btn.app-btn(
+      :class="$style.iconButton"
       icon
       @click.stop="$refs.navDrawer.drawer = true"
     )
@@ -70,13 +73,13 @@ export default {
 }
 </script>
 
-<style>
-button.btn.btn--icon.app-btn {
+<style module>
+.iconButton {
   margin-left: 2px !important;
   margin-right: 2px !important;
 }
 
-input#date-picker {
-  max-width: 82px;
+.datePicker {
+  max-width: 121px;
 }
 </style>

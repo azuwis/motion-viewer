@@ -4,7 +4,8 @@ div(v-if="baseName")
     v-show="false"
     :src="`${this.baseName}-sprite.jpg`"
   )
-  video.motion-detail(
+  video(
+    :class="$style.video"
     v-if="video"
     width="100%"
     :poster="`${baseName}.jpg`"
@@ -89,8 +90,8 @@ export default {
 }
 </script>
 
-<style>
-video.motion-detail {
+<style module>
+.video {
   background-color: black;
 }
 </style>

@@ -1,7 +1,8 @@
 <template lang="pug">
 div
   v-fab-transition
-    v-btn#nav-fab-top(
+    v-btn(
+      :class="$style.fabTop"
       fab
       color="primary" dark small
       fixed bottom right
@@ -32,8 +33,8 @@ export default {
 }
 </script>
 
-<style>
-#nav-fab-top {
-  bottom: 64px;
+<style module>
+.fabTop {
+  bottom: 64px !important;
 }
 </style>

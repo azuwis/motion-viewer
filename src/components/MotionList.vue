@@ -8,19 +8,20 @@ v-container(fluid grid-list-xs)
     )
       img(
         :src="`${motionPrefix}${date}/${video.time}.jpg`"
-        :class="{'motion-list-img-selected': (dialog && video.time === selected)}"
+        :class="{[$style.imgSelected]: (dialog && video.time === selected)}"
         width="100%" height="100%"
         @click.stop="showMotionDetail(video.time)"
       )
   nav-fab
   v-dialog(
-    content-class="motion-list-dialog"
+    :content-class="$style.dialog"
     hide-overlay
     persistent
     :transition="false"
     :value="dialog"
   )
-    v-btn#motion-list-dialog-close(
+    v-btn(
+      :class="$style.dialogClose"
       fab
       small
       color="primary"
@@ -100,21 +101,21 @@ export default {
 }
 </script>
 
-<style>
-.dialog.motion-list-dialog {
+<style module>
+.dialog {
   transition-duration: 0s;
   position: fixed;
   top: 48px;
   margin: 0;
 }
 
-#motion-list-dialog-close {
-  width: 32px;
-  height: 32px;
+.dialogClose {
+  width: 32px !important;
+  height: 32px !important;
   margin-right: -15px;
 }
 
-.motion-list-img-selected {
+.imgSelected {
   outline: 2px dashed #EEEEEE;
   outline-offset: -2px;
 }
