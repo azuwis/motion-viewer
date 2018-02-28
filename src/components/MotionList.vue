@@ -80,6 +80,13 @@ export default {
       deep: true
     }
   },
+  created () {
+    const videosJson = localStorage.getItem('videos')
+    if (videosJson) this.videos = JSON.parse(videosJson)
+    this.date = this.$route.params.date
+    this.updateVideos(true)
+    this.$bus.$on('update-videos', this.updateVideos)
+  },
   methods: {
     showMotionDetail (time) {
       if (this.dialog && this.selected === time) {
@@ -104,13 +111,6 @@ export default {
         this.$bus.$emit('loading', false)
       })
     }
-  },
-  created () {
-    const videosJson = localStorage.getItem('videos')
-    if (videosJson) this.videos = JSON.parse(videosJson)
-    this.date = this.$route.params.date
-    this.updateVideos(true)
-    this.$bus.$on('update-videos', this.updateVideos)
   }
 }
 </script>

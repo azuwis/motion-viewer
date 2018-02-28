@@ -60,6 +60,13 @@ export default {
       localStorage.setItem('date', date)
     }
   },
+  created () {
+    const date = localStorage.getItem('date')
+    this.date = date || getDate(new Date())
+    this.$bus.$on('loading', loading => {
+      this.loading = loading
+    })
+  },
   methods: {
     gotoToday () {
       this.date = getDate(new Date())
@@ -67,13 +74,6 @@ export default {
     updateVideos () {
       this.$bus.$emit('update-videos')
     }
-  },
-  created () {
-    const date = localStorage.getItem('date')
-    this.date = date || getDate(new Date())
-    this.$bus.$on('loading', loading => {
-      this.loading = loading
-    })
   }
 }
 </script>

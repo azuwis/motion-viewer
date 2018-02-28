@@ -68,11 +68,11 @@ export default {
       this.reset()
     }
   },
-  beforeDestroy () {
-    window.removeEventListener('resize', this.resized)
-  },
   mounted () {
     window.addEventListener('resize', this.resized)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resized)
   },
   methods: {
     slide (event) {
