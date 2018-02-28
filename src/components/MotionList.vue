@@ -30,7 +30,7 @@ v-container(fluid grid-list-xs)
       color="primary"
       fixed
       right
-      @click.native.stop="$router.push({params: {time: null}})"
+      @click.native.stop="$router.replace({params: {time: null}})"
     )
       v-icon(small) close
     motion-detail(
@@ -91,9 +91,9 @@ export default {
   methods: {
     showMotionDetail (time) {
       if (this.time === time) {
-        this.$router.push({params: {time: null}})
+        this.$router.replace({params: {time: null}})
       } else {
-        this.$router.push({params: {time}})
+        this.$router.replace({params: {time}})
       }
     },
     updateVideos (force = true) {
