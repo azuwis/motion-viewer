@@ -41,6 +41,7 @@ import SnackBar from '@/components/SnackBar.vue'
 import {getDate} from '@/utils'
 
 export default {
+  name: 'App',
   components: {
     NavDrawer,
     SnackBar
