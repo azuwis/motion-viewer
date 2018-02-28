@@ -1,6 +1,12 @@
 <template lang="pug">
-v-container(fluid grid-list-xs)
-  v-layout(row wrap)
+v-container(
+  fluid
+  grid-list-xs
+)
+  v-layout(
+    row
+    wrap
+  )
     v-flex(
       v-for="video in videos[date]"
       :key="`${date}/${video.time}`"
