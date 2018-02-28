@@ -30,7 +30,7 @@ v-container(fluid grid-list-xs)
       color="primary"
       fixed
       right
-      @click.native.stop="dialog = false; selected = null"
+      @click.native.stop="$router.push({params: {time: null}})"
     )
       v-icon(small) close
     motion-detail(
@@ -70,7 +70,8 @@ export default {
   watch: {
     '$route' (route) {
       this.date = route.params.date
-      this.selected = null
+      this.selected = route.params.time
+      this.dialog = !!this.selected
       this.updateVideos(false)
     },
     videos: {
@@ -89,12 +90,10 @@ export default {
   },
   methods: {
     showMotionDetail (time) {
-      if (this.dialog && this.selected === time) {
-        this.selected = null
-        this.dialog = false
+      if (this.selected === time) {
+        this.$router.push({params: {time: null}})
       } else {
-        this.selected = time
-        this.dialog = true
+        this.$router.push({params: {time}})
       }
     },
     updateVideos (force = true) {
