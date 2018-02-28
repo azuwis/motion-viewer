@@ -14,9 +14,7 @@ Vue.prototype.$bus = new Vue()
 
 Vue.use(Vuetify, {
   theme: {
-    primary: colors.grey.darken3,
-    secondary: colors.grey.lighten3,
-    accent: colors.indigo.base
+    primary: colors.grey.darken3
   }
 })
 

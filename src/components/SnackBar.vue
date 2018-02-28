@@ -2,7 +2,7 @@
 v-snackbar(v-model="snackbar") {{ message }}
   v-btn(
     flat
-    color="secondary"
+    color="accent"
     @click.native="snackbar = false"
   ) Dismiss
 </template>
