@@ -5,8 +5,8 @@ div(v-if="baseName")
     :src="`${this.baseName}-sprite.jpg`"
   )
   video(
-    :class="$style.video"
     v-if="video"
+    :class="$style.video"
     width="100%"
     :poster="`${baseName}.jpg`"
     autoplay

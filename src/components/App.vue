@@ -10,15 +10,15 @@ v-app#app
   )
     v-menu
       v-text-field(
+        slot="activator"
+        v-model="date"
         :class="$style.datePicker"
         prepend-icon="today"
         :prepend-icon-cb="gotoToday"
         hide-details
         readonly
         single-line
-        slot="activator"
         :loading="loading ? 'success' : false"
-        v-model="date"
       )
       v-date-picker(no-title v-model="date")
     v-spacer

@@ -2,11 +2,11 @@
 v-container(fluid grid-list-xs)
   v-layout(row wrap)
     v-flex(
+      v-for="video in videos[date]"
+      :key="`${date}/${video.time}`"
       xs4
       sm3
       md2
-      v-for="video in videos[date]"
-      :key="`${date}/${video.time}`"
     )
       img(
         :src="`${motionPrefix}${date}/${video.time}.jpg`"
