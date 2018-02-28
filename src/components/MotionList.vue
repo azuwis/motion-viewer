@@ -10,7 +10,7 @@ v-container(fluid grid-list-xs)
     )
       img(
         :src="`${motionPrefix}${date}/${video.time}.jpg`"
-        :class="{[$style.imgSelected]: (dialog && video.time === selected)}"
+        :class="{[$style.imgSelected]: (dialog && video.time === time)}"
         width="100%"
         height="100%"
         @click.stop="showMotionDetail(video.time)"
@@ -34,7 +34,7 @@ v-container(fluid grid-list-xs)
     )
       v-icon(small) close
     motion-detail(
-      :baseName="selected ? `${motionPrefix}${date}/${selected}` : ''"
+      :baseName="time ? `${motionPrefix}${date}/${time}` : ''"
       :spriteFrames="spriteFrames"
     )
 </template>
@@ -64,14 +64,14 @@ export default {
   data: () => ({
     dialog: false,
     date: null,
-    selected: null,
+    time: null,
     videos: {}
   }),
   watch: {
     '$route' (route) {
       this.date = route.params.date
-      this.selected = route.params.time
-      this.dialog = !!this.selected
+      this.time = route.params.time
+      this.dialog = !!this.time
       this.updateVideos(false)
     },
     videos: {
@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     showMotionDetail (time) {
-      if (this.selected === time) {
+      if (this.time === time) {
         this.$router.push({params: {time: null}})
       } else {
         this.$router.push({params: {time}})
