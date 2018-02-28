@@ -38,7 +38,7 @@ export default {
     reset () {
       localStorage.clear()
       this.drawer = false
-      this.$bus.$emit('toast', 'Reset done')
+      this.$emit('toast', 'Reset done')
     }
   }
 }

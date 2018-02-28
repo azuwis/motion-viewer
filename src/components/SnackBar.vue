@@ -14,11 +14,11 @@ export default {
     message: null,
     snackbar: null
   }),
-  mounted () {
-    this.$bus.$on('toast', message => {
+  methods: {
+    toast (message) {
       this.message = message
       this.snackbar = true
-    })
+    }
   }
 }
 </script>
