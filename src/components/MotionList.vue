@@ -122,16 +122,16 @@ export default {
 
 <style module>
 .dialog {
-  transition-duration: 0s;
+  transition-duration: 0s !important;
   position: fixed;
   top: 48px;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .dialogClose {
   width: 32px !important;
   height: 32px !important;
-  margin-right: -15px;
+  margin-right: -15px !important;
 }
 
 .imgSelected {
