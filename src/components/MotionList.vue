@@ -34,7 +34,7 @@ v-container(fluid grid-list-xs)
     )
       v-icon(small) close
     motion-detail(
-      :baseName="selected ? `${motionPrefix}${date}/${selected}` : null"
+      :baseName="selected ? `${motionPrefix}${date}/${selected}` : ''"
       :spriteFrames="spriteFrames"
     )
 </template>
