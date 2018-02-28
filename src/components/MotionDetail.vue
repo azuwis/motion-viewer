@@ -32,7 +32,16 @@ div(v-if="baseName")
 <script>
 export default {
   name: 'MotionDetail',
-  props: ['baseName', 'spriteFrames'],
+  props: {
+    baseName: {
+      type: String,
+      required: true
+    },
+    spriteFrames: {
+      type: Number,
+      required: true
+    }
+  },
   data: () => ({
     preview: false,
     video: false,

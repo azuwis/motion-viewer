@@ -46,7 +46,17 @@ export default {
     MotionDetail,
     NavFab
   },
-  props: ['liveStream', 'motionPrefix', 'spriteFrames'],
+  props: {
+    liveStream: String,
+    motionPrefix: {
+      type: String,
+      required: true
+    },
+    spriteFrames: {
+      type: Number,
+      required: true
+    }
+  },
   data: () => ({
     dialog: false,
     date: null,
