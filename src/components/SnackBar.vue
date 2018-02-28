@@ -1,7 +1,8 @@
 <template lang="pug">
 v-snackbar(v-model="snackbar") {{ message }}
   v-btn(
-    flat color="secondary"
+    flat
+    color="secondary"
     @click.native="snackbar = false"
   ) Dismiss
 </template>

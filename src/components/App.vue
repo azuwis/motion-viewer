@@ -3,7 +3,9 @@ v-app#app
   nav-drawer(ref="navDrawer")
   v-toolbar(
    app
-   color="primary" dark dense
+   color="primary"
+   dark
+   dense
    fixed
   )
     v-menu
@@ -11,7 +13,9 @@ v-app#app
         :class="$style.datePicker"
         prepend-icon="today"
         :prepend-icon-cb="gotoToday"
-        hide-details readonly single-line
+        hide-details
+        readonly
+        single-line
         slot="activator"
         :loading="loading ? 'success' : false"
         v-model="date"

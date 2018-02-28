@@ -2,14 +2,17 @@
 v-container(fluid grid-list-xs)
   v-layout(row wrap)
     v-flex(
-      xs4 sm3 md2
+      xs4
+      sm3
+      md2
       v-for="video in videos[date]"
       :key="`${date}/${video.time}`"
     )
       img(
         :src="`${motionPrefix}${date}/${video.time}.jpg`"
         :class="{[$style.imgSelected]: (dialog && video.time === selected)}"
-        width="100%" height="100%"
+        width="100%"
+        height="100%"
         @click.stop="showMotionDetail(video.time)"
       )
   nav-fab
@@ -25,7 +28,8 @@ v-container(fluid grid-list-xs)
       fab
       small
       color="primary"
-      fixed right
+      fixed
+      right
       @click.native.stop="dialog = false; selected = null"
     )
       v-icon(small) close

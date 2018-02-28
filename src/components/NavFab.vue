@@ -4,16 +4,24 @@ div
     v-btn(
       :class="$style.fabTop"
       fab
-      color="primary" dark small
-      fixed bottom right
+      color="primary"
+      dark
+      small
+      fixed
+      bottom
+      right
       @click.native="goToTop"
     )
       v-icon keyboard_arrow_up
   v-fab-transition
     v-btn(
       fab
-      color="primary" dark small
-      fixed bottom right
+      color="primary"
+      dark
+      small
+      fixed
+      bottom
+      right
       @click.native="goToBottom"
     )
       v-icon keyboard_arrow_down
