@@ -1,5 +1,10 @@
 <template lang="pug">
-v-navigation-drawer(app dark fixed v-model="drawer")
+v-navigation-drawer(
+  app
+  dark
+  fixed
+  v-model="drawer"
+)
   v-list
     v-list-tile(@click.native="gotoHome")
       v-list-tile-action
