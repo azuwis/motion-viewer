@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from '@/components/App.vue'
 import router from './router'
+import store from './store'
 import './registerServiceWorker'
 
 import 'material-design-icons/iconfont/material-icons.css'
@@ -20,5 +21,6 @@ Vue.use(Vuetify, {
 
 window.app = new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
