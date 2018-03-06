@@ -25,6 +25,7 @@ async function getVideos (date) {
 export default new Vuex.Store({
   state: {
     date: null,
+    loading: false,
     toast: {
       message: null,
       show: false
@@ -39,6 +40,9 @@ export default new Vuex.Store({
   mutations: {
     setDate (state, date) {
       state.date = date
+    },
+    setLoading (state, loading) {
+      state.loading = loading
     },
     setVideos (state, { date, videos }) {
       Vue.set(state.videos, state.date, videos)
@@ -59,7 +63,9 @@ export default new Vuex.Store({
         commit('setDate', date)
       }
       if (!state.videos[date] || force) {
+        commit('setLoading', true)
         commit('setVideos', { date, videos: await getVideos(date) })
+        commit('setLoading', false)
       }
     },
     updateVideosToday ({ dispatch }) {

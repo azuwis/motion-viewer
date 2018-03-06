@@ -13,6 +13,7 @@ v-app#app
     v-btn.app-btn(
       :class="$style.iconButton"
       icon
+      :loading="loading"
       @click.native="updateVideos"
     )
       v-icon cloud_download
@@ -31,6 +32,7 @@ v-app#app
 import DatePicker from './DatePicker.vue'
 import NavDrawer from '@/components/NavDrawer.vue'
 import SnackBar from '@/components/SnackBar.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -39,13 +41,10 @@ export default {
     NavDrawer,
     SnackBar
   },
-  data: () => ({
-    loading: false
-  }),
-  created () {
-    this.$bus.$on('loading', loading => {
-      this.loading = loading
-    })
+  computed: {
+    ...mapState([
+      'loading'
+    ])
   },
   methods: {
     updateVideos () {
