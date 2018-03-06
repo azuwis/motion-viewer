@@ -43,7 +43,7 @@ export default {
     reset () {
       localStorage.clear()
       this.drawer = false
-      this.$emit('toast', 'Reset done')
+      this.$store.commit('toast', { message: 'Reset done' })
     }
   }
 }

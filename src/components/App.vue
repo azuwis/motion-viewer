@@ -1,5 +1,5 @@
 <template lang="pug">
-v-app#app(@toast="$refs.snackBar.toast")
+v-app#app
   nav-drawer(ref="navDrawer")
   v-toolbar(
    app

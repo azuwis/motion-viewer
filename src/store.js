@@ -7,7 +7,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    date: null
+    date: null,
+    toast: {
+      message: null,
+      show: false
+    }
   },
   mutations: {
     setDate (state, date) {
@@ -15,6 +19,13 @@ export default new Vuex.Store({
     },
     setDateToday (state) {
       state.date = getDate(new Date())
+    },
+    toast (state, { message, show }) {
+      if (message !== undefined) {
+        state.toast.message = message
+        state.toast.show = true
+      }
+      if (show !== undefined) state.toast.show = show
     }
   },
   actions: {
