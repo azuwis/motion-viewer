@@ -551,9 +551,9 @@
   dependencies:
     "@types/babel-types" "*"
 
-"@vue/babel-preset-app@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-3.0.0-beta.2.tgz#b5d50fadaf030bafb312476a698b781f66355bb5"
+"@vue/babel-preset-app@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-3.0.0-beta.5.tgz#ff8b930b5ac0cc7670762152b1f7deb0b6367835"
   dependencies:
     "@babel/plugin-syntax-jsx" "^7.0.0-0"
     "@babel/plugin-transform-runtime" "^7.0.0-0"
@@ -561,43 +561,42 @@
     "@babel/preset-stage-2" "^7.0.0-0"
     "@babel/runtime" "^7.0.0-0"
     babel-helper-vue-jsx-merge-props "^2.0.3"
-    babel-plugin-jsx-event-modifiers "^2.0.5"
-    babel-plugin-jsx-v-model "^2.0.3"
-    babel-plugin-transform-vue-jsx "^3.5.1"
+    babel-plugin-dynamic-import-node "^1.2.0"
+    babel-plugin-transform-vue-jsx "^4.0.0"
 
-"@vue/cli-overlay@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-3.0.0-beta.2.tgz#8cc2f322a0ffc0484e0bf76c94d8b57f08f0fbe7"
+"@vue/cli-overlay@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-3.0.0-beta.5.tgz#d655facfe1ea92586de494e0af37c3fde5203259"
 
-"@vue/cli-plugin-babel@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-3.0.0-beta.2.tgz#a204a094f87eda9ed4b6c78be0a3958c1399701b"
+"@vue/cli-plugin-babel@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-3.0.0-beta.5.tgz#f427b05c782c6767ad99d6ebfa676108d34db37f"
   dependencies:
     "@babel/core" "^7.0.0-0"
-    "@vue/babel-preset-app" "^3.0.0-beta.2"
+    "@vue/babel-preset-app" "^3.0.0-beta.5"
     babel-loader "^8.0.0-0"
 
-"@vue/cli-plugin-eslint@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-eslint/-/cli-plugin-eslint-3.0.0-beta.2.tgz#fbc9ba2976aa3b70032eaeab83a3101753a337b5"
+"@vue/cli-plugin-eslint@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-eslint/-/cli-plugin-eslint-3.0.0-beta.5.tgz#298d210897120c00f58f261e616992246fcc417c"
   dependencies:
     babel-eslint "^8.2.2"
     eslint "^4.18.1"
     eslint-loader "^2.0.0"
     eslint-plugin-vue "^4.3.0"
 
-"@vue/cli-plugin-pwa@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-pwa/-/cli-plugin-pwa-3.0.0-beta.2.tgz#b4c21f9bc6d5030f5baa12350131cab7ce5d950e"
+"@vue/cli-plugin-pwa@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-pwa/-/cli-plugin-pwa-3.0.0-beta.5.tgz#74a7cdcaf1458f79c571170e3759515e97a3f1bc"
   dependencies:
     workbox-webpack-plugin "^3.0.0-beta.1"
 
-"@vue/cli-service@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-3.0.0-beta.2.tgz#08a50f22092a1d934d4b21a8b326fb8365fd6bae"
+"@vue/cli-service@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-3.0.0-beta.5.tgz#944937f39e183bcb61c1456caffe7933aed377d0"
   dependencies:
-    "@vue/cli-overlay" "^3.0.0-beta.2"
-    "@vue/cli-shared-utils" "^3.0.0-beta.2"
+    "@vue/cli-overlay" "^3.0.0-beta.5"
+    "@vue/cli-shared-utils" "^3.0.0-beta.5"
     "@vue/web-component-wrapper" "^1.2.0"
     address "^1.0.3"
     autodll-webpack-plugin "^0.3.9"
@@ -617,6 +616,7 @@
     html-webpack-plugin "^3.0.0"
     javascript-stringify "^1.6.0"
     launch-editor-middleware "^2.2.1"
+    lodash.defaultsdeep "^4.6.0"
     minimist "^1.2.0"
     optimize-css-assets-webpack-plugin "^3.2.0"
     ora "^2.0.0"
@@ -639,9 +639,9 @@
     webpack-merge "^4.1.2"
     yorkie "^1.0.3"
 
-"@vue/cli-shared-utils@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-3.0.0-beta.2.tgz#d7a69a2c78005d46d22c695f6908563358ca6a6c"
+"@vue/cli-shared-utils@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-3.0.0-beta.5.tgz#a54f404cf2c16aba791bcb56fc53084d4be6f318"
   dependencies:
     chalk "^2.3.0"
     cmd-shim "^2.0.2"
@@ -651,9 +651,9 @@
     ora "^1.3.0"
     string.prototype.padstart "^3.0.0"
 
-"@vue/eslint-config-standard@^3.0.0-beta.2":
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@vue/eslint-config-standard/-/eslint-config-standard-3.0.0-beta.2.tgz#44394ce58bd90c1e88880f2302dd95c9168c22f2"
+"@vue/eslint-config-standard@^3.0.0-beta.5":
+  version "3.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@vue/eslint-config-standard/-/eslint-config-standard-3.0.0-beta.5.tgz#7a2b03d8ff494c1009c085e380fd5cfadf61091a"
   dependencies:
     eslint-config-standard "^11.0.0"
     eslint-plugin-import "^2.9.0"
@@ -1025,25 +1025,19 @@ babel-loader@^8.0.0-0:
     loader-utils "^1.0.2"
     mkdirp "^0.5.1"
 
-babel-plugin-jsx-event-modifiers@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-event-modifiers/-/babel-plugin-jsx-event-modifiers-2.0.5.tgz#93e6ebb5d7553bb08f9fedbf7a0bee3af09a0472"
-
-babel-plugin-jsx-v-model@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-v-model/-/babel-plugin-jsx-v-model-2.0.3.tgz#c396416b99cb1af782087315ae1d3e62e070f47d"
+babel-plugin-dynamic-import-node@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-1.2.0.tgz#f91631e703e0595e47d4beafbb088576c87fbeee"
   dependencies:
-    babel-plugin-syntax-jsx "^6.18.0"
-    html-tags "^2.0.0"
-    svg-tags "^1.0.0"
+    babel-plugin-syntax-dynamic-import "^6.18.0"
 
-babel-plugin-syntax-jsx@^6.18.0:
+babel-plugin-syntax-dynamic-import@^6.18.0:
   version "6.18.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-dynamic-import/-/babel-plugin-syntax-dynamic-import-6.18.0.tgz#8d6a26229c83745a9982a441051572caa179b1da"
 
-babel-plugin-transform-vue-jsx@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vue-jsx/-/babel-plugin-transform-vue-jsx-3.5.1.tgz#aa1f4416e4bc835db9a7a1180ae6e74c24a2e1d1"
+babel-plugin-transform-vue-jsx@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vue-jsx/-/babel-plugin-transform-vue-jsx-4.0.1.tgz#2c8bddce87a6ef09eaa59869ff1bfbeeafc5f88d"
   dependencies:
     esutils "^2.0.2"
 
@@ -3291,10 +3285,6 @@ html-minifier@^3.2.3:
     relateurl "0.2.x"
     uglify-js "3.3.x"
 
-html-tags@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-2.0.0.tgz#10b30a386085f43cede353cc8fa7cb0deeea668b"
-
 html-webpack-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-3.0.0.tgz#243b1f4e59ea2e389ebd14f8af140206c719f8a0"
@@ -4128,6 +4118,10 @@ lodash._reinterpolate@~3.0.0:
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
+
+lodash.defaultsdeep@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.0.tgz#bec1024f85b1bd96cbea405b23c14ad6443a6f81"
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -6397,10 +6391,6 @@ supports-color@^5.1.0, supports-color@^5.2.0:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.2.0.tgz#b0d5333b1184dd3666cbe5aa0b45c5ac7ac17a4a"
   dependencies:
     has-flag "^3.0.0"
-
-svg-tags@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
 
 svgo@^0.7.0:
   version "0.7.2"
