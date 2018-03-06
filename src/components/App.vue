@@ -8,19 +8,7 @@ v-app#app(@toast="$refs.snackBar.toast")
    dense
    fixed
   )
-    v-menu
-      v-text-field(
-        slot="activator"
-        v-model="date"
-        :class="$style.datePicker"
-        prepend-icon="today"
-        :prepend-icon-cb="gotoToday"
-        hide-details
-        readonly
-        single-line
-        :loading="loading ? 'success' : false"
-      )
-      v-date-picker(no-title v-model="date")
+    date-picker
     v-spacer
     v-btn.app-btn(
       :class="$style.iconButton"
@@ -40,37 +28,26 @@ v-app#app(@toast="$refs.snackBar.toast")
 </template>
 
 <script>
+import DatePicker from './DatePicker.vue'
 import NavDrawer from '@/components/NavDrawer.vue'
 import SnackBar from '@/components/SnackBar.vue'
-import {getDate} from '@/utils'
 
 export default {
   name: 'App',
   components: {
+    DatePicker,
     NavDrawer,
     SnackBar
   },
   data: () => ({
-    date: null,
     loading: false
   }),
-  watch: {
-    date (date) {
-      this.$router.push({name: 'date', params: {date}})
-      localStorage.setItem('date', date)
-    }
-  },
   created () {
-    const date = localStorage.getItem('date')
-    this.date = date || getDate(new Date())
     this.$bus.$on('loading', loading => {
       this.loading = loading
     })
   },
   methods: {
-    gotoToday () {
-      this.date = getDate(new Date())
-    },
     updateVideos () {
       this.$bus.$emit('update-videos')
     }
