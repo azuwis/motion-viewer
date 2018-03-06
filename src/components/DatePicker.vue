@@ -22,30 +22,13 @@ export default {
         return this.$store.state.date
       },
       set (date) {
-        this.$store.commit('setDate', date)
+        this.$store.dispatch('setDate', date)
       }
-    }
-  },
-  watch: {
-    '$route' (route) {
-      const date = route.params.date
-      if (date) this.date = date
-    },
-    date (date) {
-      this.$router.replace({name: 'date', params: {date}})
-    }
-  },
-  created () {
-    const date = this.$route.params.date
-    if (date) {
-      this.date = date
-    } else {
-      this.gotoToday()
     }
   },
   methods: {
     gotoToday () {
-      this.$store.commit('setDateToday')
+      this.$store.dispatch('setDateToday')
     }
   }
 }

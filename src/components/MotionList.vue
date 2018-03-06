@@ -8,7 +8,7 @@ v-container(
     wrap
   )
     v-flex(
-      v-for="video in videos[date]"
+      v-for="video in videosDate"
       :key="`${date}/${video.time}`"
       xs4
       sm3
@@ -46,9 +46,9 @@ v-container(
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MotionDetail from '@/components/MotionDetail.vue'
 import NavFab from '@/components/NavFab.vue'
-import axios from 'axios'
 
 export default {
   name: 'MotionList',
@@ -69,30 +69,38 @@ export default {
   },
   data: () => ({
     dialog: false,
-    date: null,
-    time: null,
-    videos: {}
+    time: null
   }),
+  computed: {
+    date: {
+      get () {
+        return this.$store.state.date
+      },
+      set (date) {
+        this.$store.dispatch('setDate', date)
+      }
+    },
+    ...mapGetters([
+      'videosDate'
+    ])
+  },
   watch: {
     '$route' (route) {
       this.date = route.params.date
       this.time = route.params.time
       this.dialog = !!this.time
-      this.updateVideos(false)
     },
-    videos: {
-      handler (videos) {
-        localStorage.setItem('videos', JSON.stringify(videos))
-      },
-      deep: true
+    date (date) {
+      this.$router.replace({ params: { date } })
     }
   },
   created () {
-    const videosJson = localStorage.getItem('videos')
-    if (videosJson) this.videos = JSON.parse(videosJson)
-    this.date = this.$route.params.date
-    this.updateVideos(true)
-    this.$bus.$on('update-videos', this.updateVideos)
+    const date = this.$route.params.date
+    if (date) {
+      this.date = date
+    } else {
+      this.$store.dispatch('setDateToday')
+    }
   },
   methods: {
     showMotionDetail (time) {
@@ -101,20 +109,6 @@ export default {
       } else {
         this.$router.replace({params: {time}})
       }
-    },
-    updateVideos (force = true) {
-      if (!force && this.videos[this.date]) return
-      this.$bus.$emit('loading', true)
-      axios.get(`${this.motionPrefix}${this.date}/`).then(response => {
-        this.$set(this.videos, this.date, response.data.filter(file => {
-          return file.name.endsWith('.jpg') && !file.name.endsWith('-sprite.jpg')
-        }).map(file => {
-          const time = file.name.replace(/\.jpg$/, '')
-          return {time}
-        }))
-      }).finally(() => {
-        this.$bus.$emit('loading', false)
-      })
     }
   }
 }
