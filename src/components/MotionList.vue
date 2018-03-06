@@ -77,7 +77,7 @@ export default {
         return this.$store.state.date
       },
       set (date) {
-        this.$store.dispatch('setDate', date)
+        this.$store.dispatch('updateVideos', { date })
       }
     },
     ...mapGetters([
@@ -99,7 +99,7 @@ export default {
     if (date) {
       this.date = date
     } else {
-      this.$store.dispatch('setDateToday')
+      this.$store.dispatch('updateVideosToday')
     }
   },
   methods: {

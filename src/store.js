@@ -52,15 +52,19 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async setDate ({ commit, state }, date) {
-      if (state.date === date) return
-      commit('setDate', date)
-      if (!state.videos[date]) {
+    async updateVideos ({ dispatch, commit, state }, { date, force }) {
+      if (date === undefined) {
+        date = state.date
+      } else if (state.date !== date) {
+        commit('setDate', date)
+      }
+      if (!state.videos[date] || force) {
         commit('setVideos', { date, videos: await getVideos(date) })
       }
     },
-    setDateToday ({ dispatch }) {
-      dispatch('setDate', getDate(new Date()))
+    updateVideosToday ({ dispatch }) {
+      const date = getDate(new Date())
+      dispatch('updateVideos', { date })
     }
   }
 })

@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     updateVideos () {
-      this.$bus.$emit('update-videos')
+      this.$store.dispatch('updateVideos', { force: true })
     }
   }
 }
