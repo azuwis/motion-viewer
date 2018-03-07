@@ -20,7 +20,7 @@ export default new Router({
       props: {src: motionViewerConfig.liveStream}
     },
     {
-      path: '/:date/:time?',
+      path: '/:date?/:time?',
       name: 'date',
       component: MotionList,
       props: motionViewerConfig
