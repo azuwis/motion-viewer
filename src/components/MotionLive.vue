@@ -29,6 +29,7 @@ export default {
     document.addEventListener('visibilitychange', this.visibilityChanged)
   },
   beforeDestroy: function () {
+    this.$refs.img.src = ''
     document.removeEventListener('visibilitychange', this.visibilityChanged)
   },
   methods: {
