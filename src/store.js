@@ -13,7 +13,7 @@ const motionViewerConfig = window.motionViewerConfig || {
 }
 
 async function getVideos (date) {
-  const response = await axios.get(`${motionViewerConfig.motionPrefix}${date}`)
+  const response = await axios.get(`${motionViewerConfig.motionPrefix}${date}/`)
   return response.data.filter(file => {
     return file.name.endsWith('.jpg') && !file.name.endsWith('-sprite.jpg')
   }).map(file => {
