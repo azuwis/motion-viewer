@@ -57,12 +57,17 @@ export default new Vuex.Store({
   },
   actions: {
     async updateVideos ({ dispatch, commit, state }, { date, force }) {
+      let shouldUpdate
       if (date === undefined) {
         date = state.date
-      } else if (state.date !== date) {
+        shouldUpdate = false
+      } else if (state.date === date) {
+        shouldUpdate = false
+      } else {
         commit('setDate', date)
+        shouldUpdate = !state.videos[date]
       }
-      if (!state.videos[date] || force) {
+      if (shouldUpdate || force) {
         commit('setLoading', true)
         commit('setVideos', { date, videos: await getVideos(date) })
         commit('setLoading', false)
