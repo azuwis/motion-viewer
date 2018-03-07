@@ -47,8 +47,8 @@ v-container(
 
 <script>
 import { mapGetters } from 'vuex'
-import MotionDetail from '@/components/MotionDetail.vue'
-import NavFab from '@/components/NavFab.vue'
+import MotionDetail from './MotionDetail.vue'
+import NavFab from './NavFab.vue'
 
 export default {
   name: 'MotionList',

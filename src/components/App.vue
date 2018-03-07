@@ -30,8 +30,8 @@ v-app#app
 
 <script>
 import DatePicker from './DatePicker.vue'
-import NavDrawer from '@/components/NavDrawer.vue'
-import SnackBar from '@/components/SnackBar.vue'
+import NavDrawer from './NavDrawer.vue'
+import SnackBar from './SnackBar.vue'
 import { mapState } from 'vuex'
 
 export default {

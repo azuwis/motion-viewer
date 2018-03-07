@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import MotionList from '@/components/MotionList.vue'
-import MotionLive from '@/components/MotionLive.vue'
+import MotionList from './components/MotionList.vue'
+import MotionLive from './components/MotionLive.vue'
 
 Vue.use(Router)
 
