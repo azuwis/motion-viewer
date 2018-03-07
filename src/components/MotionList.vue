@@ -68,7 +68,6 @@ export default {
     }
   },
   data: () => ({
-    dialog: false,
     time: null
   }),
   computed: {
@@ -80,6 +79,9 @@ export default {
         this.$store.dispatch('updateVideos', { date })
       }
     },
+    dialog () {
+      return !!this.time
+    },
     ...mapGetters([
       'videosDate'
     ])
@@ -88,7 +90,6 @@ export default {
     '$route' (route) {
       this.date = route.params.date
       this.time = route.params.time
-      this.dialog = !!this.time
     },
     date (date) {
       this.$router.replace({ params: { date } })
