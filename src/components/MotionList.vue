@@ -39,7 +39,12 @@ v-container(
       @click.native.stop="$router.replace({params: {time: null}})"
     )
       v-icon(small) close
+    motion-live(
+      v-if="live"
+      :src="liveStream"
+    )
     motion-detail(
+      v-else
       :baseName="time ? `${motionPrefix}${date}/${time}` : ''"
       :spriteFrames="spriteFrames"
     )
@@ -48,12 +53,14 @@ v-container(
 <script>
 import { mapGetters } from 'vuex'
 import MotionDetail from './MotionDetail.vue'
+import MotionLive from './MotionLive.vue'
 import NavFab from './NavFab.vue'
 
 export default {
   name: 'MotionList',
   components: {
     MotionDetail,
+    MotionLive,
     NavFab
   },
   props: {
@@ -81,6 +88,9 @@ export default {
     },
     dialog () {
       return !!this.time
+    },
+    live () {
+      return this.time === 'live'
     },
     ...mapGetters([
       'videosDate'

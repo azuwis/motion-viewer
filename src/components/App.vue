@@ -13,6 +13,12 @@ v-app#app
     v-btn.app-btn(
       :class="$style.iconButton"
       icon
+      @click.native="liveStream"
+    )
+      v-icon camera
+    v-btn.app-btn(
+      :class="$style.iconButton"
+      icon
       :loading="loading"
       @click.native="updateVideos"
     )
@@ -47,6 +53,9 @@ export default {
     ])
   },
   methods: {
+    liveStream () {
+      this.$router.replace({ params: { time: 'live' } })
+    },
     updateVideos () {
       this.$store.dispatch('updateVideos', { force: true })
     }
