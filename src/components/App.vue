@@ -8,6 +8,13 @@ v-app#app
    dense
    fixed
   )
+    template(v-if="!routeDate")
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
+        @click.native="$router.go(-1)"
+      )
+        v-icon arrow_back
     template(v-if="routeDate")
       date-picker
       v-spacer
