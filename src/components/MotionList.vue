@@ -36,7 +36,7 @@ v-container(
       color="primary"
       fixed
       right
-      @click.native.stop="$router.replace({params: {time: null}})"
+      @click.native.stop="closeDialog"
     )
       v-icon(small) close
     motion-live(
@@ -117,9 +117,12 @@ export default {
     this.time = this.$route.params.time
   },
   methods: {
+    closeDialog () {
+      this.$router.replace({params: {time: null}})
+    },
     showMotionDetail (time) {
       if (this.time === time) {
-        this.$router.replace({params: {time: null}})
+        this.closeDialog()
       } else {
         this.$router.replace({params: {time}})
       }
