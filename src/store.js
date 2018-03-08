@@ -69,7 +69,11 @@ export default new Vuex.Store({
       }
       if (shouldUpdate || force) {
         commit('setLoading', true)
-        commit('setVideos', { date, videos: await getVideos(date) })
+        try {
+          commit('setVideos', { date, videos: await getVideos(date) })
+        } catch (error) {
+          commit('toast', { message: `Error getting videos at ${date}` })
+        }
         commit('setLoading', false)
       }
     },
