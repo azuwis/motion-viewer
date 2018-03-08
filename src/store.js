@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 import axios from 'axios'
 import { getDate } from './utils'
@@ -23,6 +24,14 @@ async function getVideos (date) {
 }
 
 export default new Vuex.Store({
+  plugins: [
+    createPersistedState({
+      paths: [
+        'date',
+        'videos'
+      ]
+    })
+  ],
   state: {
     date: null,
     loading: false,
