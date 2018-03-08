@@ -77,7 +77,8 @@ export default {
   },
   methods: {
     liveStream () {
-      this.$router.replace({ params: { time: 'live' } })
+      const time = this.$route.params.time === 'live' ? null : 'live'
+      this.$router.replace({ params: { time } })
     },
     motionList () {
       this.$router.push({ name: 'date' })
