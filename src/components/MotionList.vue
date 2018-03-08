@@ -114,6 +114,7 @@ export default {
     } else {
       this.$store.dispatch('updateVideosToday')
     }
+    this.time = this.$route.params.time
   },
   methods: {
     showMotionDetail (time) {
