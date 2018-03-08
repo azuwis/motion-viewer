@@ -8,21 +8,31 @@ v-app#app
    dense
    fixed
   )
-    date-picker
-    v-spacer
-    v-btn.app-btn(
-      :class="$style.iconButton"
-      icon
-      @click.native="liveStream"
-    )
-      v-icon camera
-    v-btn.app-btn(
-      :class="$style.iconButton"
-      icon
-      :loading="loading"
-      @click.native="updateVideos"
-    )
-      v-icon cloud_download
+    template(v-if="routeDate")
+      date-picker
+      v-spacer
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
+        @click.native="liveStream"
+      )
+        v-icon camera
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
+        :loading="loading"
+        @click.native="updateVideos"
+      )
+        v-icon cloud_download
+    template(v-if="routeLive")
+      v-toolbar-title Live
+      v-spacer
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
+        @click.native="motionList"
+      )
+        v-icon today
     v-btn.app-btn(
       :class="$style.iconButton"
       icon
@@ -48,6 +58,12 @@ export default {
     SnackBar
   },
   computed: {
+    routeDate () {
+      return this.$route.name === 'date'
+    },
+    routeLive () {
+      return this.$route.name === 'live'
+    },
     ...mapState([
       'loading'
     ])
@@ -55,6 +71,9 @@ export default {
   methods: {
     liveStream () {
       this.$router.replace({ params: { time: 'live' } })
+    },
+    motionList () {
+      this.$router.push({ name: 'date' })
     },
     updateVideos () {
       this.$store.dispatch('updateVideos', { force: true })
