@@ -20,6 +20,7 @@ export default {
   },
   data: function () {
     return {
+      // 4x3 balck image
       url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAAAAACRn/EaAAAAC0lEQVQI12NgQAEAAA8AAS0uh5oAAAAASUVORK5CYII=',
       visible: true,
       play: true
