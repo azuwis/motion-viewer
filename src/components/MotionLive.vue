@@ -20,12 +20,15 @@ export default {
   },
   data: function () {
     return {
-      url: this.src,
+      url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAAAAACRn/EaAAAAC0lEQVQI12NgQAEAAA8AAS0uh5oAAAAASUVORK5CYII=',
       visible: true,
       play: true
     }
   },
   mounted () {
+    setTimeout(() => {
+      this.url = this.src
+    }, 0)
     document.addEventListener('visibilitychange', this.visibilityChanged)
   },
   beforeDestroy: function () {
