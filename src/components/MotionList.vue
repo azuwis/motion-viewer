@@ -109,6 +109,8 @@ export default {
     const date = this.$route.params.date
     if (date) {
       this.date = date
+    } else if (this.date) {
+      this.$router.replace({ params: { date: this.date } })
     } else {
       this.$store.dispatch('updateVideosToday')
     }
