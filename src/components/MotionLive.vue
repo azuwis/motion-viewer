@@ -19,9 +19,11 @@ export default {
     }
   },
   data: function () {
+    // 640x480 balck image
+    const blackImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgAQMAAAAPH06nAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAA9SURBVHja7cEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODPAJfgAAFLzBtKAAAAAElFTkSuQmCC'
     return {
-      // 4x3 balck image
-      url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAAAAACRn/EaAAAAC0lEQVQI12NgQAEAAA8AAS0uh5oAAAAASUVORK5CYII=',
+      url: blackImage,
+      blackImage,
       visible: true,
       play: true
     }
@@ -76,7 +78,11 @@ export default {
       ctx.lineTo(width / 2 - 40, height / 2 + 50)
       ctx.lineTo(width / 2 + 40, height / 2)
       ctx.fill()
-      this.url = canvas.toDataURL('image/png')
+      try {
+        this.url = canvas.toDataURL('image/png')
+      } catch (error) {
+        this.url = this.blackImage
+      }
       this.play = false
     },
     resume: function () {
@@ -95,7 +101,10 @@ export default {
       ctx.lineTo(width / 2 - 30, height / 2 + 30)
       ctx.lineTo(width / 2 + 20, height / 2)
       ctx.fill()
-      this.url = canvas.toDataURL('image/png')
+      try {
+        this.url = canvas.toDataURL('image/png')
+      } catch (error) {
+      }
       setTimeout(() => {
         this.url = this.src
       }, 0)
