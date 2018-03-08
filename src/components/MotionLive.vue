@@ -94,7 +94,7 @@ export default {
       this.url = canvas.toDataURL('image/png')
       setTimeout(() => {
         this.url = this.src
-      }, 50)
+      }, 0)
       this.play = true
     }
   }
