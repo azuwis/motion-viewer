@@ -11,6 +11,11 @@ v-navigation-drawer(
         v-icon home
       v-list-tile-content
         v-list-tile-title Home
+    v-list-tile(@click.native="liveStream")
+      v-list-tile-action
+        v-icon camera
+      v-list-tile-content
+        v-list-tile-title Live
     v-list-tile(@click.native="toggleFullscreen")
       v-list-tile-action
         v-icon fullscreen
@@ -38,6 +43,10 @@ export default {
     },
     gotoHome () {
       this.$router.push('/')
+      this.drawer = false
+    },
+    liveStream () {
+      this.$router.push({ name: 'live' })
       this.drawer = false
     },
     reset () {
