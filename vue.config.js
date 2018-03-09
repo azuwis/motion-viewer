@@ -15,6 +15,7 @@ module.exports = {
   },
   productionSourceMap: false,
   pwa: {
+    themeColor: '#424242',
     workboxOptions: {
       importWorkboxFrom: 'local',
       clientsClaim: true,
