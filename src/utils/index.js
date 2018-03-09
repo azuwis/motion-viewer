@@ -1,3 +1,9 @@
+export function addDate (dateString, offset) {
+  const date = new Date(dateString)
+  date.setDate(date.getDate() + offset)
+  return getDate(date)
+}
+
 export function getDate (date) {
   return `${date.getFullYear()}-${padDate(date.getMonth() + 1)}-${padDate(date.getDate())}`
 }

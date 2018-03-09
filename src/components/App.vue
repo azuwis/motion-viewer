@@ -27,8 +27,20 @@ v-app#app
       v-btn.app-btn(
         :class="$style.iconButton"
         icon
+        @click.native="updateVideos({ date: -1 })"
+      )
+        v-icon skip_previous
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
+        @click.native="updateVideos({ date: 1 })"
+      )
+        v-icon skip_next
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
         :loading="loading"
-        @click.native="updateVideos"
+        @click.native="updateVideos({ force: true })"
       )
         v-icon cloud_download
     template(v-if="routeLive")
@@ -83,8 +95,8 @@ export default {
     motionList () {
       this.$router.push({ name: 'date' })
     },
-    updateVideos () {
-      this.$store.dispatch('updateVideos', { force: true })
+    updateVideos (options) {
+      this.$store.dispatch('updateVideos', options)
     }
   }
 }

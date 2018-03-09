@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
 import axios from 'axios'
-import { getDate } from './utils'
+import { addDate, getDate } from './utils'
 
 Vue.use(Vuex)
 
@@ -75,6 +75,8 @@ export default new Vuex.Store({
       } else {
         if (date === 'today') {
           date = getDate(new Date())
+        } else if (Number.isInteger(date)) {
+          date = addDate(state.date, date)
         }
         commit('setDate', date)
         shouldUpdate = !state.videos[date]
