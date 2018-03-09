@@ -51,7 +51,7 @@ v-container(
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import MotionDetail from './MotionDetail.vue'
 import MotionLive from './MotionLive.vue'
 import NavFab from './NavFab.vue'
@@ -78,53 +78,36 @@ export default {
     time: null
   }),
   computed: {
-    date: {
-      get () {
-        return this.$store.state.date
-      },
-      set (date) {
-        this.$store.dispatch('updateVideos', { date })
-      }
-    },
     dialog () {
       return !!this.time
     },
     live () {
       return this.time === 'live'
     },
+    ...mapState([
+      'date'
+    ]),
     ...mapGetters([
       'videosDate'
     ])
   },
   watch: {
     '$route' (route) {
-      this.date = route.params.date
       this.time = route.params.time
-    },
-    date (date) {
-      this.$router.push({ params: { date } })
     }
   },
   created () {
-    const date = this.$route.params.date
-    if (date) {
-      this.date = date
-    } else if (this.date) {
-      this.$router.replace({ params: { date: this.date } })
-    } else {
-      this.$store.dispatch('updateVideosToday')
-    }
     this.time = this.$route.params.time
   },
   methods: {
     closeDialog () {
-      this.$router.replace({params: {time: null}})
+      this.$router.replace({ params: { time: null } })
     },
     showMotionDetail (time) {
       if (this.time === time) {
         this.closeDialog()
       } else {
-        this.$router.replace({params: {time}})
+        this.$router.replace({ params: { time } })
       }
     }
   }
