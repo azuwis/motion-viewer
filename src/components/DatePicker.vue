@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     gotoToday () {
-      this.$store.dispatch('updateVideosToday')
+      this.$store.dispatch('updateVideos', { date: 'today' })
     }
   }
 }

@@ -73,6 +73,9 @@ export default new Vuex.Store({
       } else if (state.date === date) {
         shouldUpdate = false
       } else {
+        if (date === 'today') {
+          date = getDate(new Date())
+        }
         commit('setDate', date)
         shouldUpdate = !state.videos[date]
       }
@@ -85,10 +88,6 @@ export default new Vuex.Store({
         }
         commit('setLoading', false)
       }
-    },
-    updateVideosToday ({ dispatch }) {
-      const date = getDate(new Date())
-      dispatch('updateVideos', { date })
     }
   }
 })
