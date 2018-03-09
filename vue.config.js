@@ -17,6 +17,13 @@ module.exports = {
   pwa: {
     themeColor: '#424242',
     workboxOptions: {
+      exclude: [
+          /\.map$/,
+          /img\/icons\//,
+          /^js\/manifest.*\.js$/,
+          /favicon\.ico$/,
+          /manifest\.json$/
+      ],
       importWorkboxFrom: 'local',
       clientsClaim: true,
       skipWaiting: true
