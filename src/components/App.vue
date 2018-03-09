@@ -8,7 +8,14 @@ v-app#app
    dense
    fixed
   )
-    template(v-if="!routeDate")
+    template(v-if="routeDate")
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
+        @click.stop="$refs.navDrawer.drawer = true"
+      )
+        v-icon menu
+    template(v-else)
       v-btn.app-btn(
         :class="$style.iconButton"
         icon
@@ -58,12 +65,6 @@ v-app#app
         @click.native="motionList"
       )
         v-icon today
-    v-btn.app-btn(
-      :class="$style.iconButton"
-      icon
-      @click.stop="$refs.navDrawer.drawer = true"
-    )
-      v-icon more_vert
   v-content
     router-view
   snack-bar(ref="snackBar")
