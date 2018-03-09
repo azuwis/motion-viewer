@@ -114,7 +114,5 @@ export default {
   margin-right: 2px !important;
 }
 
-.datePicker {
-  max-width: 121px;
 }
 </style>

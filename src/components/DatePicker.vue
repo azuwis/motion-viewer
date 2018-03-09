@@ -46,11 +46,6 @@ export default {
 </script>
 
 <style module>
-.iconButton {
-  margin-left: 2px !important;
-  margin-right: 2px !important;
-}
-
 .datePicker {
   max-width: 81px;
 }
