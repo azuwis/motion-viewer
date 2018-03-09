@@ -31,7 +31,7 @@ export default {
       this.date = route.params.date
     },
     date (date) {
-      this.$router.push({ params: { date } })
+      this.$router.push({ params: { date, time: null } })
     }
   },
   created () {
