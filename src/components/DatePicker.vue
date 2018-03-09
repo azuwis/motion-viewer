@@ -1,13 +1,11 @@
 <template lang="pug">
 v-menu
-  v-text-field(
+  v-btn(
     slot="activator"
-    v-model="date"
     :class="$style.datePicker"
-    hide-details
-    readonly
-    single-line
-  )
+    flat
+    large
+  ) {{ date }}
   v-date-picker(no-title v-model="date")
 </template>
 
@@ -46,7 +44,8 @@ export default {
 </script>
 
 <style module>
-.datePicker {
-  max-width: 81px;
+.datePicker :global(.btn__content) {
+  font-size: 20px;
+  padding: 0 !important;
 }
 </style>

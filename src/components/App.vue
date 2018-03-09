@@ -57,7 +57,7 @@ v-app#app
       )
         v-icon cloud_download
     template(v-if="routeLive")
-      v-toolbar-title Live
+      v-toolbar-title(:class="$style.toolbarTitle") Live
       v-spacer
       v-btn.app-btn(
         :class="$style.iconButton"
@@ -115,5 +115,8 @@ export default {
   margin-right: 2px !important;
 }
 
+.toolbarTitle {
+  margin-left: 8px !important;
+  margin-right: 8px !important;
 }
 </style>
