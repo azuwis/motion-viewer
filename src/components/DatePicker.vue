@@ -41,7 +41,7 @@ export default {
     } else if (this.date) {
       this.$router.replace({ params: { date: this.date } })
     } else {
-      this.$store.dispatch('updateVideosToday')
+      this.gotoToday()
     }
   },
   methods: {
