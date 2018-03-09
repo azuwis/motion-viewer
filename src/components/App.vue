@@ -33,6 +33,12 @@ v-app#app
       v-btn.app-btn(
         :class="$style.iconButton"
         icon
+        @click.native="updateVideos({ date: 'today' })"
+      )
+        v-icon today
+      v-btn.app-btn(
+        :class="$style.iconButton"
+        icon
         @click.native="updateVideos({ date: 1 })"
       )
         v-icon skip_next

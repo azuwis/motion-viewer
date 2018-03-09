@@ -4,8 +4,6 @@ v-menu
     slot="activator"
     v-model="date"
     :class="$style.datePicker"
-    prepend-icon="today"
-    :prepend-icon-cb="gotoToday"
     hide-details
     readonly
     single-line
@@ -43,11 +41,6 @@ export default {
     } else {
       this.gotoToday()
     }
-  },
-  methods: {
-    gotoToday () {
-      this.$store.dispatch('updateVideos', { date: 'today' })
-    }
   }
 }
 </script>
@@ -59,6 +52,6 @@ export default {
 }
 
 .datePicker {
-  max-width: 121px;
+  max-width: 81px;
 }
 </style>
