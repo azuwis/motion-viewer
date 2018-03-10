@@ -1,6 +1,7 @@
 <template lang="pug">
 v-navigation-drawer(
   app
+  clipped
   dark
   fixed
   v-model="drawer"
