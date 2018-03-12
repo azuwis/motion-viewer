@@ -39,7 +39,6 @@ export default {
     return {
       // 640x480 balck image
       url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgAQMAAAAPH06nAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAA9SURBVHja7cEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODPAJfgAAFLzBtKAAAAAElFTkSuQmCC',
-      visible: true,
       play: true
     }
   },
@@ -57,7 +56,7 @@ export default {
     visibilityChanged: function () {
       if (document.hidden) {
         this.pause()
-      } else if (this.visible) {
+      } else {
         this.resume()
       }
     },
