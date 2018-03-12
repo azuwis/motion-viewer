@@ -15,7 +15,8 @@ if (process.env.NODE_ENV === 'production') {
     },
     updated () {
       console.log('New content is available; please refresh.')
-      window.app.$store.commit('toast', { message: 'Update available, please refresh.' })
+      window.app.$store.commit('toast', { message: 'Update available, reloading.' })
+      setTimeout(() => window.location.reload(), 1500)
     },
     offline () {
       console.log('No internet connection found. App is running in offline mode.')
