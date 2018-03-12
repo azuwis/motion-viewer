@@ -21,24 +21,6 @@ export default {
         this.$store.dispatch('updateVideos', { date })
       }
     }
-  },
-  watch: {
-    '$route' (route) {
-      this.date = route.params.date
-    },
-    date (date) {
-      this.$router.push({ params: { date, time: null } })
-    }
-  },
-  created () {
-    const date = this.$route.params.date
-    if (date) {
-      this.date = date
-    } else if (this.date) {
-      this.$router.replace({ params: { date: this.date } })
-    } else {
-      this.$store.dispatch('updateVideos', { date: 'today' })
-    }
   }
 }
 </script>

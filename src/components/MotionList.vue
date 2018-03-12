@@ -3,6 +3,7 @@ v-container(
   fluid
   grid-list-xs
 )
+  route-date
   v-layout(
     row
     wrap
@@ -55,13 +56,15 @@ import { mapGetters, mapState } from 'vuex'
 import MotionDetail from './MotionDetail.vue'
 import MotionLive from './MotionLive.vue'
 import NavFab from './NavFab.vue'
+import RouteDate from './RouteDate.vue'
 
 export default {
   name: 'MotionList',
   components: {
     MotionDetail,
     MotionLive,
-    NavFab
+    NavFab,
+    RouteDate
   },
   props: {
     liveStream: String,
