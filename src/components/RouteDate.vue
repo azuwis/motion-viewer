@@ -11,7 +11,9 @@ export default {
   watch: {
     '$route' (route) {
       const date = route.params.date
-      this.$store.dispatch('updateVideos', { date })
+      if (date !== this.date) {
+        this.$store.dispatch('updateVideos', { date })
+      }
     },
     date (date) {
       this.$router.push({ params: { date, time: null } })
