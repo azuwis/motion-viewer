@@ -36,11 +36,9 @@ export default {
     }
   },
   data: function () {
-    // 640x480 balck image
-    const blackImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgAQMAAAAPH06nAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAA9SURBVHja7cEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODPAJfgAAFLzBtKAAAAAElFTkSuQmCC'
     return {
-      url: blackImage,
-      blackImage,
+      // 640x480 balck image
+      url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgAQMAAAAPH06nAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAA9SURBVHja7cEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODPAJfgAAFLzBtKAAAAAElFTkSuQmCC',
       visible: true,
       play: true
     }
@@ -77,11 +75,18 @@ export default {
       let width = img.naturalWidth
       let height = img.naturalHeight
       const ctx = canvas.getContext('2d')
+      let canvasFallback = true
       if (width) {
         canvas.width = width
         canvas.height = height
         ctx.drawImage(img, 0, 0)
-      } else {
+        try {
+          ctx.getImageData(0, 0, 1, 1)
+          canvasFallback = false
+        } catch (error) {
+        }
+      }
+      if (canvasFallback) {
         width = 640
         height = 480
         canvas.width = width
@@ -91,12 +96,7 @@ export default {
       }
       drawOuterRetangle(ctx, 'white', width, height)
       drawInnerRetangle(ctx, '#555', width, height)
-      try {
-        this.url = canvas.toDataURL('image/png')
-      } catch (error) {
-        console.log(error)
-        this.url = this.blackImage
-      }
+      this.url = canvas.toDataURL('image/png')
       this.play = false
     },
     resume: function () {
