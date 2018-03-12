@@ -9,6 +9,23 @@ img(
 </template>
 
 <script>
+function drawOuterRetangle (ctx, color, width, height) {
+  ctx.fillStyle = color
+  ctx.beginPath()
+  ctx.moveTo(width / 2 - 40, height / 2 - 50)
+  ctx.lineTo(width / 2 - 40, height / 2 + 50)
+  ctx.lineTo(width / 2 + 40, height / 2)
+  ctx.fill()
+}
+
+function drawInnerRetangle (ctx, color, width, height) {
+  ctx.fillStyle = color
+  ctx.beginPath()
+  ctx.moveTo(width / 2 - 30, height / 2 - 30)
+  ctx.lineTo(width / 2 - 30, height / 2 + 30)
+  ctx.lineTo(width / 2 + 20, height / 2)
+  ctx.fill()
+}
 
 export default {
   name: 'MotionLive',
@@ -72,15 +89,12 @@ export default {
         ctx.fillStyle = 'black'
         ctx.fillRect(0, 0, width, height)
       }
-      ctx.fillStyle = 'white'
-      ctx.beginPath()
-      ctx.moveTo(width / 2 - 40, height / 2 - 50)
-      ctx.lineTo(width / 2 - 40, height / 2 + 50)
-      ctx.lineTo(width / 2 + 40, height / 2)
-      ctx.fill()
+      drawOuterRetangle(ctx, 'white', width, height)
+      drawInnerRetangle(ctx, '#555', width, height)
       try {
         this.url = canvas.toDataURL('image/png')
       } catch (error) {
+        console.log(error)
         this.url = this.blackImage
       }
       this.play = false
@@ -95,12 +109,7 @@ export default {
       canvas.width = width
       canvas.height = height
       ctx.drawImage(img, 0, 0)
-      ctx.fillStyle = '#555'
-      ctx.beginPath()
-      ctx.moveTo(width / 2 - 30, height / 2 - 30)
-      ctx.lineTo(width / 2 - 30, height / 2 + 30)
-      ctx.lineTo(width / 2 + 20, height / 2)
-      ctx.fill()
+      drawOuterRetangle(ctx, 'white', width, height)
       try {
         this.url = canvas.toDataURL('image/png')
       } catch (error) {
