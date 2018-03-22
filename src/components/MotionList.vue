@@ -118,6 +118,10 @@ export default {
 </script>
 
 <style module>
+:global(#app .dialog__content) {
+  z-index: 5 !important;
+}
+
 .dialog {
   transition-duration: 0s !important;
   position: fixed;
