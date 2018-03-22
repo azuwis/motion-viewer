@@ -12,7 +12,7 @@ v-app#app
       v-btn.app-btn(
         :class="$style.iconButton"
         icon
-        @click.stop="$refs.navDrawer.drawer = true"
+        @click.stop="drawerOpen"
       )
         v-icon menu
     template(v-else)
@@ -98,6 +98,9 @@ export default {
     liveStream () {
       const time = this.$route.params.time === 'live' ? null : 'live'
       this.$router.replace({ params: { time } })
+    },
+    drawerOpen () {
+      this.$refs.navDrawer.drawer = true
     },
     motionList () {
       this.$router.push({ name: 'date' })
