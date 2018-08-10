@@ -9,9 +9,11 @@ export default {
     ])
   },
   watch: {
-    '$route' (route) {
+    '$route' (route, oldRoute) {
       const date = route.params.date
-      if (date !== this.date) {
+      if (!oldRoute.params.date) {
+        this.$store.dispatch('updateVideos', { date, init: true })
+      } else if (date !== this.date) {
         this.$store.dispatch('updateVideos', { date })
       }
     },
@@ -22,11 +24,9 @@ export default {
   created () {
     const date = this.$route.params.date
     if (date) {
-      this.$store.dispatch('updateVideos', { date })
-    } else if (this.date) {
-      this.$router.replace({ params: { date: this.date } })
+      this.$store.dispatch('updateVideos', { date, init: true })
     } else {
-      this.$store.dispatch('updateVideos', { date: 'today' })
+      this.$router.replace({ params: { date: this.date } })
     }
   },
   render: h => h()

@@ -30,6 +30,7 @@ export default new Vuex.Store({
   ],
   state: {
     date: getDate(new Date()),
+    initialized: !motionViewerConfig.needInit,
     loading: false,
     toast: {
       message: null,
@@ -39,10 +40,13 @@ export default new Vuex.Store({
   },
   getters: {
     videosDate (state) {
-      return state.videos[state.date]
+      return state.initialized ? state.videos[state.date] : null
     }
   },
   mutations: {
+    initialized (state) {
+      state.initialized = true
+    },
     reset (state) {
       state.date = getDate(new Date())
       state.videos = {}
@@ -65,7 +69,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async updateVideos ({ dispatch, commit, state }, { date, force }) {
+    async updateVideos ({ dispatch, commit, state }, { date, init, force }) {
       let shouldUpdate
       if (date === undefined) {
         date = state.date
@@ -79,10 +83,11 @@ export default new Vuex.Store({
         shouldUpdate = !state.videos[date]
         if (state.date !== date) commit('setDate', date)
       }
-      if (shouldUpdate || force) {
+      if (shouldUpdate || force || (init && motionViewerConfig.needInit)) {
         commit('setLoading', true)
         try {
           commit('setVideos', { date, videos: await getVideos(date) })
+          commit('initialized')
         } catch (error) {
           commit('toast', { message: `Error getting videos at ${date}` })
         }
