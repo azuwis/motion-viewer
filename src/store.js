@@ -33,7 +33,7 @@ export default new Vuex.Store({
     })
   ],
   state: {
-    date: null,
+    date: getDate(new Date()),
     loading: false,
     toast: {
       message: null,
@@ -48,7 +48,7 @@ export default new Vuex.Store({
   },
   mutations: {
     reset (state) {
-      state.date = null
+      state.date = getDate(new Date())
       state.videos = {}
     },
     setDate (state, date) {
