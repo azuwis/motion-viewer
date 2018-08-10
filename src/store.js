@@ -74,16 +74,14 @@ export default new Vuex.Store({
       if (date === undefined) {
         date = state.date
         shouldUpdate = false
-      } else if (state.date === date) {
-        shouldUpdate = false
       } else {
         if (date === 'today') {
           date = getDate(new Date())
         } else if (Number.isInteger(date)) {
           date = addDate(state.date, date)
         }
-        commit('setDate', date)
         shouldUpdate = !state.videos[date]
+        if (state.date !== date) commit('setDate', date)
       }
       if (shouldUpdate || force) {
         commit('setLoading', true)
