@@ -47,6 +47,10 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    reset (state) {
+      state.date = null
+      state.videos = {}
+    },
     setDate (state, date) {
       state.date = date
     },
