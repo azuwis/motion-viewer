@@ -5,11 +5,7 @@ import MotionLive from './components/MotionLive.vue'
 
 Vue.use(Router)
 
-const motionViewerConfig = window.motionViewerConfig || {
-  liveStream: 'live/',
-  motionPrefix: 'motion/',
-  spriteFrames: 50
-}
+const motionViewerConfig = window.motionViewerConfig
 
 export default new Router({
   routes: [

@@ -7,11 +7,7 @@ import { addDate, getDate } from './utils'
 
 Vue.use(Vuex)
 
-const motionViewerConfig = window.motionViewerConfig || {
-  liveStream: 'live/',
-  motionPrefix: 'motion/',
-  spriteFrames: 50
-}
+const motionViewerConfig = window.motionViewerConfig
 
 async function getVideos (date) {
   const response = await axios.get(`${motionViewerConfig.motionPrefix}${date}/`)
