@@ -125,11 +125,14 @@ export default {
 .dialog {
   transition-duration: 0s !important;
   position: fixed;
+  overflow: hidden !important;
   top: 48px;
   margin: 0 !important;
+  max-width: 640px;
 }
 
 .dialogClose {
+  position: absolute !important;
   width: 32px !important;
   height: 32px !important;
   margin-right: -15px !important;
