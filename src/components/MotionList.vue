@@ -23,6 +23,19 @@ v-container(
         @click.stop="showMotionDetail(video.time)"
       )
   nav-fab
+  v-btn(
+    v-if="dialog"
+    :class="$style.fabClose"
+    fab
+    color="primary"
+    dark
+    small
+    fixed
+    bottom
+    right
+    @click.native="closeDialog"
+  )
+    v-icon close
   v-dialog(
     :content-class="$style.dialog"
     hide-overlay
@@ -30,16 +43,6 @@ v-container(
     :transition="false"
     :value="dialog"
   )
-    v-btn(
-      :class="$style.dialogClose"
-      fab
-      small
-      color="primary"
-      fixed
-      right
-      @click.native.stop="closeDialog"
-    )
-      v-icon(small) close
     motion-live(
       v-if="live"
       :src="liveStream"
@@ -131,11 +134,8 @@ export default {
   max-width: 640px;
 }
 
-.dialogClose {
-  position: absolute !important;
-  width: 32px !important;
-  height: 32px !important;
-  margin-right: -15px !important;
+.fabClose {
+  bottom: 112px !important;
 }
 
 .imgSelected {
